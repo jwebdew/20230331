@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 레이아웃1</title>
+    <link href="css/조건.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="img/icons8-sketch-100.png" alt="" />
+                </a>
+            </h1>
+            <div class="menu_icon">
+                <img src="img/menu_icon_2.png" alt="메뉴" />
+            </div><!-- .menu_icon end -->
+        </div><!-- inner end --> 
+    </header>
+    <section class="main_visual">
+        <img src="img/img02.jpg" alt="" />
+    </section><!-- .main_visual end -->
+    <section class="cont01"> 
+        <div class="list">
+            <div class="item" id="item01">
+                <figure>
+                    <img id="item01-img" src="img/img03.jpg" alt="" />
+                </figure>
+                <div>
+                    <h4>[하동] 당일 #쌍계사10리벚꽃길 #화개장터 #벚꽃여행</h4>
+                    <p>한국관광공사가 추천하는, 눈부신 4월의 설원과 같이 흩날리는 벚꽃의 쌍계사10리벚꽃길과 화개장터를 둘러보는 하동 당일 봄 여행 상품입니다.</p>
+                    <strong>41,900원~</strong>
+                    <button id="item01-1">다른이미지보기</button>
+                </div>
+            </div><!-- .item end -->
+
+            <div class="item" id="item02">
+                <figure>
+                    <img id="item02-img" src="img/img04.jpg" alt="" />
+                </figure>
+                <div>
+                    <h4>[제주] 핫플레이스 3일 #산양큰엉곶 #수목원야시장 #사려니숲길</h4>
+                    <p>레트로 감성의 미디어아트 노형슈퍼마켙을 비롯하여 사려니숲길 등 제주 핫플 관광지를 둘러봅니다. 제주 특유의 제주도 근고기 및 특식을 즐기실 수 있습니다.</p>
+                    <strong>319,000원~</strong>
+                    <button id="item01-2">다른이미지보기</button>
+                </div>
+            </div><!-- .item end -->
+        </div><!-- .list end --> 
+    </section><!-- .cont01 end -->
+
+    <section class="cont02">
+        <div class="inner">
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img id="bg_img" src="img/img05.jpg" alt="" />
+                    </figure>
+                    <div> 
+                        <h4>꿈을 담은 특별한 여행</h4>
+                        <p>떠나고 싶은 마음에게 쉽게 답을 드리는<br />
+                            여행이지와 함께 특별한 경험을 시작하세요.</p>
+                        <button id="btn">이미지보기 <span id="num">1</span>/3</button>   
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end -->
+        </div><!-- .inner end -->
+    </section><!-- cont02 end -->
+    <script>
+        //버튼 클릭했을 때
+        //#item01-1 클릭했을 때
+        let btn = document.getElementById('item01-1');
+        let item01Img = document.getElementById('item01-img');
+
+        btn.onmouseenter = function(){
+            item01Img.src = "img/img03-1.jpg";
+            item01Img.style.transform = 'scale(0.8)';
+            item01Img.style.transition = '2s';
+        }
+
+        btn.onmouseleave = function(){
+            item01Img.src = "img/img03.jpg";
+            item01Img.style.transform = 'scale(1)';
+            item01Img.style.transition = '2s';
+        }
+        //#item01-2 클릭했을 때
+        let btn2 = document.getElementById('item01-2');
+        let item02Img = document.getElementById('item02-img');
+
+        btn2.onmouseenter = function(){
+            item02Img.src = "img/img04-1.jpg";
+            item02Img.style.transform = 'scale(0.8)';
+            item02Img.style.transition = '2s';
+        }
+
+        btn2.onmouseleave = function(){
+            item02Img.src = "img/img04.jpg";
+            item02Img.style.transform = 'scale(1)';
+            item02Img.style.transition = '2s';
+        }
+
+
+        //이미지보기 버튼 클릭 시 이미지 교체 및 텍스트 변경
+
+        let img1 = 'img/img05.jpg';
+        let img2 = 'img/img06.jpg';
+        let img3 = 'img/img07.jpg';
+
+        let imgList = [img1, img2, img3];
+        let numList = [1, 2, 3];
+
+        let btnImgChange = document.getElementById('btn');
+        let sectionImg = document.getElementById('bg_img');
+        let numText = document.getElementById('num');
+
+        let i = 0;
+        let num = 1;
+
+        btnImgChange.onclick = function () {
+            i++;
+            num++;
+            if (i >= imgList.length) {
+                i = 0;
+                num = 1;
+            }
+            console.log(i)
+            sectionImg.src = imgList[i]; 
+            numText.innerText = numList[i];
+          
+
+        }
+
+    </script>
+</body>
+</html>
