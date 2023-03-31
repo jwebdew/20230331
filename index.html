@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>자바스크립트 레이아웃1</title>
     <link href="css/조건.css" rel="stylesheet" />
 </head>
 <body>
+    <p class="mode">다크모드보기</p>
     <header>
         <div class="inner">
             <h1>
@@ -132,6 +133,28 @@
 
         }
 
+        //다크모드, 기본모드
+        let modeBtn = document.getElementsByClassName('mode')[0];
+        let bodyBg = document.getElementsByTagName('body')[0];
+
+        modeBtn.onclick = function(){
+            if(modeBtn.innerText == '다크모드보기') {
+                modeBtn.innerText = '기본모드보기';
+                modeBtn.style.backgroundColor = 'rgb(0, 0, 0)';
+                modeBtn.style.color = 'rgb(255, 255, 255)';
+                bodyBg.style.backgroundColor = 'rgb(0, 0, 0)';
+                bodyBg.style.color = 'rgb(255, 255, 255)';
+
+
+            } else {
+                modeBtn.innerText = '다크모드보기';
+                modeBtn.style.backgroundColor = 'rgb(255, 255, 255)';
+                modeBtn.style.color = 'rgb(0, 0, 0)';
+
+                bodyBg.style.backgroundColor = 'rgb(255, 255, 255)';
+                bodyBg.style.color = 'rgb(0, 0, 0)';
+            }
+        }
     </script>
 </body>
 </html>
